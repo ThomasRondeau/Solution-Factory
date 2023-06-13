@@ -1,12 +1,23 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
+// definition de l'emplacement des ressources statiques
+app.use(express.static('static'));
+
+// création de la session
+app.use(session({
+    secret: 'votre_clé_secrète',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.get('/accueil', (req, res) => {
   res.send('Bienvenue sur votre site web !');
 });
 
-app.get
+
 
 app.post('/submit', (req, res) => {
     const name = req.body.name;
@@ -16,8 +27,6 @@ app.post('/submit', (req, res) => {
   
     res.send(`
       <h2>Formulaire soumis avec succès</h2>
-      <p>Nom : ${name}</p>
-      <p>Email : ${email}</p>
     `);
   });
 
@@ -25,5 +34,3 @@ app.listen(port, () => {
   console.log(`Serveur lancé sur le port ${port}`);
 });
 
-
- 
