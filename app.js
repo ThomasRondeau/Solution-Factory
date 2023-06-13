@@ -13,17 +13,19 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.get('/', (req, res) => {
+    res.redirect('/accueil');
+});
+
 app.get('/accueil', (req, res) => {
   res.send('Bienvenue sur votre site web !');
 });
-
 
 
 app.post('/submit', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
   
-    // Autres traitements ou actions que vous souhaitez effectuer avec les données
   
     res.send(`
       <h2>Formulaire soumis avec succès</h2>
