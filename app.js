@@ -21,7 +21,7 @@ app.use(session({
 // Creation de la connexion mysql
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'votre_utilisateur',
+    user: 'root',
     password: 'root',
     database: 'courtier'
   });
