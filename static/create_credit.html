@@ -7,6 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="/submit" method="post">
+
+        <label for="montant">Montant de la demande :</label>
+        <input type="text" id="montant" name="montant" required><br>
+
+        <label for="nom_d">Nom du demandeur :</label>
+        <input type="text" id="nom_d" name="nom_d" required><br>
+
+        <label for="email_d">Email du demandeur:</label>
+        <input type="email" id="email_d" name="email_d" required><br>
+        
+        <input type="submit" value="Envoyer la demande">
+    </form>
 </body>
 </html>
