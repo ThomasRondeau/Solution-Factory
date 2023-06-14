@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div id="bandeau"><h1 id="Nom_site">Best Rate</h1></div>
+        <div id="redirection">
+            <a href=index.html>Accueil</a>
+            <a href=register.html>S'inscrire</a>
+            <a href="login.html">Se connecter</a>
+            <a href="create_credit.html">Demmande de credit</a>
+        </div>
+    </header>
     <form action="/submit" method="post">
 
         <label for="montant">Montant de la demande :</label>
@@ -17,6 +26,9 @@
 
         <label for="email_d">Email du demandeur:</label>
         <input type="email" id="email_d" name="email_d" required><br>
+
+        <label for="justificatif de domicile">vous devez fournir un justificatif de domicile :</label>
+        <input name="file1" type="file" accept="application/pdf">
         
         <input type="submit" value="Envoyer la demande">
     </form>

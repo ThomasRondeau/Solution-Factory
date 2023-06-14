@@ -17,7 +17,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-
+/*
 // Creation de la connexion mysql
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -35,7 +35,7 @@ console.log('Connexion à la base de données établie');
 });
 
 
-
+*/
 // tous les get pour les pages
 app.get('/', (req, res) => {
     res.redirect('/accueil');
