@@ -1,4 +1,5 @@
 CREATE DATABASE courtier;
+USE courtier;
 
 CREATE TABLE contrat(
    id_contrat INT,
