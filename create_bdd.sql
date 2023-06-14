@@ -1,3 +1,5 @@
+CREATE DATABASE courtier;
+
 CREATE TABLE contrat(
    id_contrat INT,
    montant INT,
