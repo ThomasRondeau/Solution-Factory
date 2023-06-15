@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
@@ -15,9 +16,10 @@ app.use(express.static('static'));
 app.use(session({
     secret: 'hsfqifnqlifnvvnazpnea',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie : {maxAge : 1000 * 60 * 60 * 24}
 }));
-/*
+
 // Creation de la connexion mysql
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -35,34 +37,10 @@ console.log('Connexion à la base de données établie');
 });
 
 
-*/
-// tous les get pour les pages
+
+// redirect
 app.get('/', (req, res) => {
     res.redirect('/accueil');
-});
-
-app.get('/accueil', (req, res) => {
-    res.sendFile(__dirname + '/static/index.html');
-});
-
-app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/static/login.html');
-});
-
-app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/static/register.html');
-});
-
-app.get('/consulter_demande', (req, res) => {
-    res.sendFile(__dirname + '/static/consulter_demande.html');
-});
-
-app.get('/create_credit', (req, res) => {
-    res.sendFile(__dirname + '/static/create_credit.html');
-});
-
-app.get('/answer_offre', (req, res) => {
-    res.sendFile(__dirname + '/static/answer_offre.html');
 });
 
 
@@ -74,9 +52,32 @@ app.post('/submit', (req, res) => {
     const email = req.body.email;
     const birthdate = req.body.birthdate;
     const city = req.body.city;
-    const password = req.body.password;   
+    const password = req.body.password;
 
-  });
+    var sql = "INSERT INTO client (nom, prenom, email, birthdate, city, password) VALUES (?, ?, ?, ?, ?, ?)";
+    connection.query(sql, [nom, prenom, email, birthdate, city, password], (err, result) => {
+        if (err) {
+            console.error("Une erreur s'est produite lors de l'insertion des données : ", err);
+            res.send('<script> alert("Il y a eu un problème dans la création du compte") </script>')
+        } else {
+            console.log("Données insérées avec succès !");
+            //Ajouter un redirect
+        }
+    });
+});
+
+app.post('/login', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    var sql = "SELECT password FROM client WHERE email == ?"
+    connection.query(sql , [email], (err, result) => {
+        if(result == password){
+            // creation de session
+        }
+    })
+
+})
 
 app.listen(port, () => {
   console.log(`Serveur lancé sur le port ${port}`);

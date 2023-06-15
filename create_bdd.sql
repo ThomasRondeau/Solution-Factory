@@ -8,18 +8,18 @@ CREATE TABLE contrat(
 );
 
 CREATE TABLE client(
-   id_client INT,
+   id_client INT AUTO_INCREMENT,
    nom VARCHAR(20),
    prenom VARCHAR(20),
-   email VARCHAR(20),
+   email VARCHAR(100),
    birthdate VARCHAR(20),
-   password VARCHAR(20),
-   ville VARCHAR(20),
+   password VARCHAR(100),
+   ville VARCHAR(100),
    PRIMARY KEY(id_client)
 );
 
 CREATE TABLE banque(
    id_banque INT,
-   password VARCHAR(20),
+   password VARCHAR(100),
    PRIMARY KEY(id_banque)
 );
