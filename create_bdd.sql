@@ -2,8 +2,10 @@ CREATE DATABASE courtier;
 USE courtier;
 
 CREATE TABLE contrat(
-   id_contrat INT,
+   id_contrat INT AUTO_INCREMENT,
    montant INT,
+   duree INT,
+   
    PRIMARY KEY(id_contrat)
 );
 

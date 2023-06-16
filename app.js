@@ -6,6 +6,13 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
+// récupérer le router
+const routes = require('./router.js')
+app.use('/', routes)
+
+// cookie parser middleware
+app.use(cookieParser());
+
 // parsing de l'url renvoyé par le form
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,6 +49,14 @@ console.log('Connexion à la base de données établie');
 app.get('/', (req, res) => {
     res.redirect('/accueil');
 });
+
+
+
+
+
+
+
+
 
 
 // tous les posts pour traiter les forms
