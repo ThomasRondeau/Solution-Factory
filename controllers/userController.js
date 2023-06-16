@@ -3,8 +3,8 @@ const User = require('../models/userModel');
 // Contrôleur pour créer un nouvel utilisateur
 function createUser(req, res) {
     const { nom, prenom, email, password, birthdate, city }= req.body;
-
-  User.createUser({ nom, prenom, email, password, birthdate, city }, (error, newUser) => {
+    newUser = User(nom, prenom, email, password, birthdate, city)
+    newUser.createUser((error) => {
     if (error) {
       res.status(500).json({ error: 'Erreur lors de la création de l\'utilisateur.' });
     } else {
@@ -13,22 +13,35 @@ function createUser(req, res) {
   });
 }
 
+function getUser(req, res){
+    const userId = req.body.id;
+    try {
+        return User.getUser(userId)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 // Contrôleur pour login
 function loginUser(req, res) {
-  const userId = req.params.id;
-
-  User.loginUser(userId, (error, user) => {
-    if (error) {
-      res.status(500).json({ error: 'Erreur lors de la récupération de l\'utilisateur.' });
-    } else if (!user) {
-      res.status(404).json({ error: 'Utilisateur non trouvé.' });
-    } else {
-      res.status(200).json({ user });
+  const email = req.body.email
+  const password = req.body.password
+    try {
+        req.session.userId = User.loginUser(email, password)
+    } catch (error) {
+        console.log(error)
     }
-  });
+}
+
+function logoutUser(req, res){
+    req.session.destroy()
+    res.redirect('/accueil')
 }
 
 module.exports = {
   createUser,
   getUser,
+  loginUser,
+  logoutUser
 };
+

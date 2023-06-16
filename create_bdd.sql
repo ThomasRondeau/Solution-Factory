@@ -5,8 +5,9 @@ CREATE TABLE contrat(
    id_contrat INT AUTO_INCREMENT,
    montant INT,
    duree INT,
-   
-   PRIMARY KEY(id_contrat)
+   id_client INT,
+   PRIMARY KEY(id_contrat),
+   FOREIGN KEY (id_client) REFERENCES client(id_client)
 );
 
 CREATE TABLE client(
@@ -24,4 +25,12 @@ CREATE TABLE banque(
    id_banque INT,
    password VARCHAR(100),
    PRIMARY KEY(id_banque)
+);
+
+CREATE TABLE relation_banque_client(
+   id_contrat INT,
+   id_banque INT,
+   FOREIGN KEY(id_contrat) REFERENCES contrat(id_contrat),
+   FOREIGN KEY(id_banque) REFERENCES banque(id_banque),
+   PRIMARY KEY(id_banque, id_contrat)
 );

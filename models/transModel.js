@@ -25,5 +25,13 @@ class Transaction {
         }
     }
 
-    static 
+    static answerCredit(id_contrat, id_banque){
+        const query = "INSERT INTO relation_banque_client(id_contrat, id_banque) VALUES(?, ?)"
+        try {
+            connection.query(query, [id_contrat, id_banque])
+            .then(results => results.insertId);
+        } catch (error) {
+            throw error
+        }
+    }
 }
