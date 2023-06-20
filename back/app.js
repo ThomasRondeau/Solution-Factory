@@ -13,7 +13,7 @@ const routes = require('./router.js')
 app.use(cookieParser());  // pour les sessions
 app.use(bodyParser.urlencoded({ extended: false })); // pour récupérer les body sous la bonne forme dans les formulaires
 app.use('/', routes)                    // servir le router
-app.use(express.static('static'));  // servir les pages (les gets)
+app.use(express.static('../front/static'));  // servir les pages (les gets)
 app.use(session({
     secret: 'hsfqifnqlifnvvnazpnea',
     resave: false,
