@@ -18,8 +18,29 @@ const loginBank = require('./controllers/bankController.js')
 
 //redirect
 router.get('/', (req, res) => {
-    res.redirect('/index.html');
+    res.redirect('/accueil');
 });
+
+// tous les gets
+router.get('/accueil', (req, res) => {
+    res.sendFile('../front/html/index.html')
+})
+router.get('/consulter_demande', (req, res) => {
+    res.sendFile('../front/static/consulter_demande.html')
+})
+router.get('/create_credit', (req, res) => {
+    res.sendFile('../front/static/create_credit.html') // C:\Users\Thomas\Desktop\Solution Factory\front\static\answer_offre.html
+})
+router.get('/login', (req, res) => {
+    res.sendFile('../front/static/login.html')
+})
+router.get('/register', (req, res) => {
+    res.sendFile('../front/static/register.html')
+})
+router.get('/answer_offre', (req, res) => {
+    res.sendFile('../front/static/answer_offre.html')
+})
+
 /*
 // pour le userController
 router.post('/register', createUser)
