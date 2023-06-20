@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const path = require('path')
 
 //récupération des controllers
 const  { 
@@ -16,6 +17,8 @@ const  {
 
 const loginBank = require('./controllers/bankController.js')
 
+const htmlPath = path.join(__dirname, '../front/html');
+
 //redirect
 router.get('/', (req, res) => {
     res.redirect('/accueil');
@@ -23,22 +26,22 @@ router.get('/', (req, res) => {
 
 // tous les gets
 router.get('/accueil', (req, res) => {
-    res.sendFile('../front/html/index.html')
+    res.sendFile('index.html', { root : htmlPath})
 })
 router.get('/consulter_demande', (req, res) => {
-    res.sendFile('../front/static/consulter_demande.html')
+    res.sendFile('consulter_demande.html', { root : htmlPath})
 })
 router.get('/create_credit', (req, res) => {
-    res.sendFile('../front/static/create_credit.html') // C:\Users\Thomas\Desktop\Solution Factory\front\static\answer_offre.html
+    res.sendFile('create_credit.html', { root : htmlPath})
 })
 router.get('/login', (req, res) => {
-    res.sendFile('../front/static/login.html')
+    res.sendFile('login.html', { root : htmlPath})
 })
 router.get('/register', (req, res) => {
-    res.sendFile('../front/static/register.html')
+    res.sendFile('register.html', { root : htmlPath})
 })
 router.get('/answer_offre', (req, res) => {
-    res.sendFile('../front/static/answer_offre.html')
+    res.sendFile('answer_offre.html', { root : htmlPath})
 })
 
 /*
