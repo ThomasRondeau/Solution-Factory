@@ -28,6 +28,7 @@ function loginUser(req, res) {
   const password = req.body.password
     try {
         req.session.userId = User.loginUser(email, password)
+        req.session.typeOfUser = "client"
     } catch (error) {
         console.log(error)
     }
@@ -44,4 +45,3 @@ module.exports = {
   loginUser,
   logoutUser
 };
-

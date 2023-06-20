@@ -1,5 +1,5 @@
-const authMiddleware = (req, res, next) => {
-    if (req.session && req.session.userId) {
+const authClientMiddleware = (req, res, next) => {
+    if (req.session && req.session.userId  && req.session.typeOfUser == "client") {
       // L'utilisateur est authentifié
       next();
     } else {
@@ -9,4 +9,4 @@ const authMiddleware = (req, res, next) => {
   };
   
   // Exportez le middleware d'authentification
-  module.exports = authMiddleware;
+  module.exports = authClientMiddleware;
