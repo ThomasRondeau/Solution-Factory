@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/output.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<body class="bg-cover" style="background-image: url('../images/background.JPG'); height:800px " class = "background" background-color="background-color: rgb(148 163 184)">
+<body class="bg-cover" style="background-image: url('../../images/background.JPG'); height:800px ">
     <div id="main">
         <header>
-            <div id="bandeau" >
+            <div id="bandeau" class="flex items-center" >
 
                 <div class="pt-2">
-                    <img src="../images/home.png" alt="logo">
-                    <h1 id="Nom_site" class="text-justify text-white" >Best Rate</h1>
+                    <img class="ml-12" src="../../images/home.png" alt="logo">
+                    <h1 id="Nom_site" class="ml-5 text-xl font-bold text-justify text-white">Best Rate</h1>
                 </div>
             
                 <div id="redirection">
@@ -25,9 +26,11 @@
                 </div>
         </div>
         </header>
-        <div id="corps_accueil">
-            <h1 id="h1">Bienvenue</h1>
-            <h2>Ici vous pourrez obtenir les meilleurs offres de crédit</h2>
+
+        <div id="corps_accueil" class="w-full px-40  flex flex-col items-start mt-72">
+            <div class="w-96"><p class="text-3xl font-serif font-extrabold text-justify text-white">Bienvenue ! <br><br> Ici vous pourrez obtenir les meilleurs offres de crédit.</p></div>
+            <br>
+            <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-lg px-10 py-3 text-center mr-2 mb-2">Discover More</button>
         </div>
     </div>
     

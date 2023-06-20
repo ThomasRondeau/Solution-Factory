@@ -530,6 +530,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .list-none {
   list-style-type: none;
 }
