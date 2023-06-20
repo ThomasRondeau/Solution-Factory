@@ -16,7 +16,7 @@ class Transaction {
     }
 
     createTransaction() {
-        const query = "INSERT INTO contrat(montant, duree) VALUES(?, ?)"
+        const query = "INSERT INTO contrat(montant, duree, status) VALUES(?, ?, ?)"
         try {
             connection.query(query, [this.montant, this.duree])
             .then(results => results.insertId);

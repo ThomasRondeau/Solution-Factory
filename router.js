@@ -18,9 +18,9 @@ const loginBank = require('./controllers/bankController.js')
 
 //redirect
 router.get('/', (req, res) => {
-    res.redirect('/accueil');
+    res.redirect('/index.html');
 });
-
+/*
 // pour le userController
 router.post('/register', createUser)
 router.post('/login_client', loginUser)
@@ -33,5 +33,5 @@ router.post('/login_banque', loginBank)
 // pour le transController
 router.post('/credit', createCredit)
 router.post('/answer_credit', answerCredit)
-
+*/
 module.exports = router
