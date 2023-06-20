@@ -33,5 +33,14 @@ class Transaction {
         } catch (error) {
             throw error
         }
+        query = "UPDATE table_name SET column1 = value1, WHERE "
+        try {
+            connection.query(query, [id_contrat, id_banque])
+            .then(results => results.insertId);
+        } catch (error) {
+            throw error
+        }
     }
 }
+
+module.exports = Transaction;
