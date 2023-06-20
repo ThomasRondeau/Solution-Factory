@@ -2,4 +2,4 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* lancer la commande pour build tailwind à la fin du projet :  npx tailwindcss build styles.css -o public/build/styles.css  */
+/* commande à lancer : npx tailwindcss -i style.css -o ./front/css/output.css --watch*/

@@ -16,9 +16,9 @@ class Transaction {
     }
 
     createTransaction() {
-        const query = "INSERT INTO contrat(montant, duree, status) VALUES(?, ?, ?)"
+        const query = "INSERT INTO contrat(montant, duree, statut) VALUES(?, ?, ?)"
         try {
-            connection.query(query, [this.montant, this.duree])
+            connection.query(query, [this.montant, this.duree, false])
             .then(results => results.insertId);
         } catch (error) {
             throw error
@@ -33,9 +33,9 @@ class Transaction {
         } catch (error) {
             throw error
         }
-        query = "UPDATE table_name SET column1 = value1, WHERE "
+        query = "UPDATE contrat SET statut = ? WHERE id_contrat = ?"
         try {
-            connection.query(query, [id_contrat, id_banque])
+            connection.query(query, [true, id_contrat])
             .then(results => results.insertId);
         } catch (error) {
             throw error
