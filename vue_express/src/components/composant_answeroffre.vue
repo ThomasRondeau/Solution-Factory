@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    proprietes: {
+    propriete: {
         montant: {
             type: Number,
             required: true
