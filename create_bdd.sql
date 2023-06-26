@@ -31,6 +31,7 @@ CREATE TABLE banque(
 CREATE TABLE relation_banque_client(
    id_contrat INT,
    id_banque INT,
+   taux INT,
    FOREIGN KEY(id_contrat) REFERENCES contrat(id_contrat),
    FOREIGN KEY(id_banque) REFERENCES banque(id_banque),
    PRIMARY KEY(id_banque, id_contrat)
