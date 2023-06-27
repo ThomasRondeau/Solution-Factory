@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/output.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div id="bandeau"><h1 id="Nom_site">Best Rate</h1></div>
-        <div id="redirection">
-            <a href="accueil">Accueil</a>
-            <a href="register">S'inscrire</a>
-            <a href="login">Se connecter</a>
-            <a href="create_credit">Demmande de credit</a>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/output.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Document</title>
+    </head>
+
+    <!-- Create Credit Page-->
+    <div class="bg-black h-screen" >
+
+         <!-- Menu Bar -->
+        <div class="bandeau">
+            <div id="bandeau" class="flex items-center" >
+
+                <div>
+                    <img class="ml-10" src="../../images/logo.png" alt="logo">
+                </div>
+                
+                <div id="redirection" class="flex-1 text-end mr-4">
+                    <a href="index.html" class="text-white px-5 hover:bg-slate-700 ">Accueil</a>
+                    <a href="register.html" class="text-white px-5 hover:bg-slate-700 ">S'inscrire</a>
+                    <a href="login.html" class="text-white px-5 hover:bg-slate-700 ">Se connecter</a>
+                    <a href="create_credit.html" class="text-white px-5 hover:bg-slate-700 ">Demande de credit</a>
+                </div>
         </div>
-    </header>
-    <form action="/credit" method="post">
 
-        <label for="montant">Montant de la demande :</label>
-        <input type="text" id="montant" name="montant" required><br>
+        <!--Body-->
+        <div class="flex flex-row">
 
-        <label for="nom_d">Nom du demandeur :</label>
-        <input type="text" id="nom_d" name="nom_d" required><br>
+            <!--image-->
+            <div class="w-1/5 ">
+                <img class="rounded-lg w-full h-full ml-20 mt-20" src="../../images/imag-credit.jpg">
+            </div>
 
-        <label for="email_d">Email du demandeur:</label>
-        <input type="email" id="email_d" name="email_d" required><br>
+            <!--form-->
+            <div class="ml-28 w-3/5 items-center">
+                <h2 class="font-serif text-2xl ml-64 mt-16 text-white">Demande de crédit</h2>
+                <form class="mt-14" action="/credit" method="post">
 
-        <label for="justificatif de domicile">vous devez fournir un justificatif de domicile :</label>
-        <input name="file1" type="file" accept="application/pdf">
-        
-        <input type="submit" value="Envoyer la demande">
-    </form>
-</body>
+                    <label class="font-serif text-base ml-24 py-6 text-white" for="montant">Montant de la demande :</label>
+                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="text" id="montant" name="montant" required><br>
+
+                    <label class="font-serif text-base ml-24 py-6 text-white" for="nom_d">Nom du demandeur :</label>
+                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="text" id="nom_d" name="nom_d" required><br>
+
+                    <label class="font-serif text-base ml-24 py-6 text-white" for="email_d">Email du demandeur:</label>
+                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="email" id="email_d" name="email_d" required><br>
+
+                    <label class="font-serif text-base ml-24 py-6 text-white" for="justificatif de domicile">Vous devez fournir un justificatif de domicile :</label>
+                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" name="file1" type="file" accept="application/pdf">
+                    
+                    <input class="mt-10 ml-24 border bg-slate-700 border-gray-300 text-white text-sm rounded-full block w-3/5 p-2.5" type="submit" value="Envoyer la demande">
+                </form>
+            </div>
+
+            <!--image-->
+            <div class="w-1/5 mr-20">
+                <img class="rounded-lg w-full h-full mt-20" src="../../images/imag-credit.jpg">
+            </div>
+
+        </div>
+
+
+    </div>
 </html>
