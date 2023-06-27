@@ -5,13 +5,13 @@
         <link rel="stylesheet" href="../css/output.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>Accueil</title>
+        <title>Document</title>
     </head>
 
-    <!-- Home Page-->
-    <div style="background-image: url('../../images/background.JPG'); height:870px ">
+    <!-- A propos Page-->
+    <div class="bg-black h-screen" >
 
-        <!-- Menu Bar -->
+         <!-- Menu Bar -->
         <div class="bandeau">
             <div id="bandeau" class="flex items-center" >
 
@@ -28,14 +28,27 @@
         </div>
 
         <!--Body-->
-        <div id="corps_" class="w-full px-40  flex flex-col items-start mt-72">
-            <div class="w-96"><p class="text-3xl font-serif font-extrabold text-justify text-white">Bienvenue ! <br><br> Ici vous pourrez obtenir les meilleurs offres de crédit.</p></div>
-            <br>
-            <a href="a_propos.html">
-                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-lg px-10 py-3 text-center mr-2 mb-2">Discover More</button>
-            </a>
+        <div class="flex flex-row">
+
+            <!--image-->
+            <div class="w-1/5 ">
+                <img class="rounded-lg w-full h-full ml-20 mt-20" src="../../images/imag-credit.jpg">
+            </div>
+
+            <!--description-->
+            <div class="ml-28 w-3/5 mt-20 items-center">
+                <h2 class="font-serif text-2xl ml-40 mt-16 text-white">Quel service proposons-nous ?</h2>
+                <h2 class="font-serif text-2xl ml-40 mt-16 text-white">Comment démarcher ?</h2>
+                <h2 class="font-serif text-2xl ml-40 mt-16 text-white">Qui sommes-nous ?</h2>
+            </div>
+
+            <!--image-->
+            <div class="w-1/5 mr-20">
+                <img class="rounded-lg w-full h-full mt-20" src="../../images/imag-credit.jpg">
+            </div>
+
         </div>
-        
+
+
     </div>
-    
 </html>
