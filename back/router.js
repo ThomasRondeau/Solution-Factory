@@ -24,6 +24,12 @@ router.get('/', (req, res) => {
     res.redirect('/accueil');
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+
+/*  remplacés par vue js
 // tous les gets
 router.get('/accueil', (req, res) => {
     res.sendFile('index.html', { root : htmlPath})
@@ -43,8 +49,8 @@ router.get('/register', (req, res) => {
 router.get('/answer_offre', (req, res) => {
     res.sendFile('answer_offre.html', { root : htmlPath})
 })
+*/
 
-/*
 // pour le userController
 router.post('/register', createUser)
 router.post('/login_client', loginUser)
@@ -57,5 +63,5 @@ router.post('/login_banque', loginBank)
 // pour le transController
 router.post('/credit', createCredit)
 router.post('/answer_credit', answerCredit)
-*/
+
 module.exports = router

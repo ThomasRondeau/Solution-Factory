@@ -1,0 +1,52 @@
+<template>
+    <navbar></navbar>
+    <!--Body-->
+    <div class="flex flex-row justify-between w-full">
+
+<!--form-->
+<div class="w-1/2">
+    <h2 class="font-serif font-bold text-2xl text-center mt-16">Crées ton compte</h2>
+    <form action="/register" method="post">
+        
+        <br>
+        <label class="font-serif font-semibold text-lg ml-24 py-6" for="name">Nom</label>
+        <input class="ml-24 border border-gray-300 text-gray-900 text-sm rounded-full block w-3/5 p-2.5" type="text" id="nom" name="nom" required>
+
+        <label class="font-serif font-bold text-lg ml-24 py-6" for="prenom">Prénom :</label>
+        <input class="ml-24 border border-gray-300 text-gray-900 text-sm rounded-full block w-3/5 p-2.5" type="text" id="prenom" name="prenom" required>
+
+        <label class="font-serif font-bold text-lg ml-24 py-6" for="birthdate"> Date de naissance :</label>
+        <input class="ml-24 border border-gray-300 text-gray-900 text-sm rounded-full block w-3/5 p-2.5" type="date" id="birthdate" name="birthdate" required>
+
+        <label class="font-serif font-bold text-lg ml-24 py-6" for="city"> Ville de résidence: </label>
+        <input class="ml-24 border border-gray-300 text-gray-900 text-sm rounded-full block w-3/5 p-2.5" type="text" id="city" name="city" required>
+
+        <label class="font-serif font-bold text-lg ml-24 py-6" for="email">Email :</label>
+        <input class="ml-24 border border-gray-300 text-gray-900 text-sm rounded-full block w-3/5 p-2.5" type="email" id="email" name="email" required>
+
+        <label class="font-serif font-bold text-lg ml-24 py-6" for="password"> Mot de passe :</label>
+        <input class="ml-24 border border-gray-300 text-gray-900 text-sm rounded-full block w-3/5 p-2.5" type="password" id="password" name="password" required>
+        
+        <input id="remember" type="checkbox" value="" class="mt-2 ml-24 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3" required>
+        <label for="remember" class="ml-2 text-sm font-medium text-gray-900">I agree with the <a href="#" class="text-blue-600 hover:underline">terms and conditions</a>.</label>
+        <br><br>
+        <input class="ml-24 border bg-slate-600 border-gray-300 text-white text-sm rounded-full block w-3/5 p-2.5" type="submit" value="Valider">
+        <label for="remember" class="ml-24 text-sm font-medium text-gray-900">Déjà inscrit ? <a href="login.html" class="text-blue-600 hover:underline">Connecte-toi</a></label>
+    </form>
+</div>
+
+<!--image-->
+<div class="w-2/3 h-screen flex flex-col items-center justify-between">
+    <img class="w-11/12 h-5/6 rounded-lg" src="../../images/background.JPG" alt="image">
+</div>
+</div>
+</template>
+
+<script>
+import navbar from '../components/navbar.vue';
+    export default {
+        components: {
+            navbar
+        }
+    }
+</script>
