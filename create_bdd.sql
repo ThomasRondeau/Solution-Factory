@@ -1,16 +1,6 @@
 CREATE DATABASE courtier;
 USE courtier;
 
-CREATE TABLE contrat(
-   id_contrat INT AUTO_INCREMENT,
-   montant INT,
-   duree INT,
-   statut BOOLEAN,
-   id_client INT,
-   PRIMARY KEY(id_contrat),
-   FOREIGN KEY (id_client) REFERENCES client(id_client)
-);
-
 CREATE TABLE client(
    id_client INT AUTO_INCREMENT,
    nom VARCHAR(20),
@@ -26,6 +16,16 @@ CREATE TABLE banque(
    id_banque INT,
    password VARCHAR(100),
    PRIMARY KEY(id_banque)
+);
+
+CREATE TABLE contrat(
+   id_contrat INT AUTO_INCREMENT,
+   montant INT,
+   duree INT,
+   statut BOOLEAN,
+   id_client INT,
+   PRIMARY KEY(id_contrat),
+   FOREIGN KEY (id_client) REFERENCES client(id_client)
 );
 
 CREATE TABLE relation_banque_client(

@@ -2,7 +2,7 @@ const Transaction = require('../models/transModel');
 
 function createTransaction(req, res){
     const {montant, duree }= req.body;
-    newTransac = Transaction(montant, duree)
+    newTransac = new Transaction(montant, duree)
     newTransac.createTransaction((error) => {
         if (error) {
           res.status(500).json({ error: 'Erreur lors de la création de la transaction.' });
@@ -24,3 +24,8 @@ function answerCredit(req, res){
     }
     
 }
+
+module.exports = {
+  createTransaction,
+  answerCredit
+};
