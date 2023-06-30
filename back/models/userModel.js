@@ -53,18 +53,16 @@ class User {
 
   static loginUser(email, password){
     const query = `SELECT id_client, password FROM client WHERE email = ?`;
-    try {
-      connection.query(query, [email])
-      .then(results => {
+    connection.connect(function(err){
+      if(err) throw err;
+      connection.query(query, [email], function(err, results){
         if (results.length > 0 && password == results[0].password) {
           return results[0].id_client
         } else {
           throw new Error("L'id ou le mot de passe ne sont pas bons");
         }
       })
-    } catch (error) {
-      throw error
-    }
+    })
   }
 }
 

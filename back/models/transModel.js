@@ -16,30 +16,27 @@ class Transaction {
     }
 
     createTransaction() {
-        const query = "INSERT INTO contrat(montant, duree, statut) VALUES(?, ?, ?)"
-        try {
-            connection.query(query, [this.montant, this.duree, false])
-            .then(results => results.insertId);
-        } catch (error) {
-            throw error
-        }
+        connection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = "INSERT INTO contrat(montant, duree, statut, id_client) VALUES(?, ?, ?)";
+            con.query(sql, [this.montant, this.duree, false], function (err, result) {
+              if (err) throw err;
+            });
+          });
     }
 
     static answerCredit(id_contrat, id_banque){
-        const query = "INSERT INTO relation_banque_client(id_contrat, id_banque) VALUES(?, ?)"
-        try {
-            connection.query(query, [id_contrat, id_banque])
-            .then(results => results.insertId);
-        } catch (error) {
-            throw error
-        }
-        query = "UPDATE contrat SET statut = ? WHERE id_contrat = ?"
-        try {
-            connection.query(query, [true, id_contrat])
-            .then(results => results.insertId);
-        } catch (error) {
-            throw error
-        }
+        connection.connect(function(err){
+            const query = "INSERT INTO relation_banque_client(id_contrat, id_banque) VALUES(?, ?)"
+            connection.query(query, [id_contrat, id_banque], function(err){
+                if(err) throw err;
+            })
+            query = "UPDATE contrat SET statut = ? WHERE id_contrat = ?"
+            connection.query(query, [true, id_contrat], function(err){
+                if(err) throw err;
+            })
+        })
     }
 }
 
