@@ -22,7 +22,6 @@ CREATE TABLE contrat(
    id_contrat INT AUTO_INCREMENT,
    montant INT,
    duree INT,
-   statut BOOLEAN,
    id_client INT,
    PRIMARY KEY(id_contrat),
    FOREIGN KEY (id_client) REFERENCES client(id_client)

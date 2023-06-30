@@ -15,7 +15,7 @@ const  {
     answerCredit
 } = require('./controllers/transController.js')
 
-const loginBank = require('./controllers/bankController.js')
+const {loginBank} = require('./controllers/bankController.js')
 
 const htmlPath = path.join(__dirname, '../front/html');
 
@@ -23,13 +23,6 @@ const htmlPath = path.join(__dirname, '../front/html');
 router.get('/', (req, res) => {
     res.redirect('/accueil');
 });
-
-/*
-// servir vue js
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-*/
 
 
 // tous les gets
@@ -60,10 +53,11 @@ router.post('/logout', logoutUser)
 router.post('/getprofile', getUser) // à implémenter pour faire une page profil
 
 // pour le bankController
-//router.post('/login_banque', loginBank)
+router.post('/login_banque', loginBank)
 
 // pour le transController
 router.post('/credit', createTransaction)
+router.post('/getalltransactions', )
 router.post('/answer_credit', answerCredit)
 
 module.exports = router
