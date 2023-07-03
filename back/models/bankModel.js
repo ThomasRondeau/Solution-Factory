@@ -15,11 +15,11 @@ class Bank{
         connection.connect(function(err){
             if(err) throw err;
             connection.query(query, [id], function(err, results){
-            if (results.length > 0 && password == results[0].password) {
-                return id
-            } else {
-                throw new Error("L'id ou le mot de passe ne sont pas bons");
-            }
+                if (results.length > 0 && password == results[0].password) {
+                    return id
+                } else {
+                    throw new Error("L'id ou le mot de passe ne sont pas bons");
+                }
             })
         })
     }

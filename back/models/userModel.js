@@ -24,31 +24,24 @@ class User {
   // Méthode pour créer un utilisateur
   createUser() {
     const query = `INSERT INTO users (username, email) VALUES (?, ?, ?, ?, ?, ?)`;
-    try {
-      return connection.query(query, [this.nom, this.prenom, this.email, this.password, this.birthdate, this.city])
-      .then(results => results.insertId);
-    } catch (error) {
-      throw error
-    }
+    connection.connect(function(err){
+      if(err) throw err;
+      connection.query(query, [this.nom, this.prenom, this.email, this.password, this.birthdate, this.city], function(err, results){
+        if(err) throw err;
+      })
+    })
   }
 
   // Méthode pour obtenir un utilisateur par son identifiant
   static getUser(userId) {
     const query = `SELECT * FROM client WHERE id = ?`;
-    try {
-      return connection.query(query, [userId])
-      .then(results => {
-        if (results.length > 0) {
-          return results
-        } else {
-          throw new Error("L'id n'a pas été trouvé")
-        }
+    connection.connect(function(err){
+      if(err) throw err;
+      connection.query(query, [userId], function(err, results){
+        if(err) throw new Error("L'id n'a pas été trouvé");
+        return results;
       })
-
-    } catch (error) {
-      throw error
-    }
-
+    })
   }
 
   static loginUser(email, password){
