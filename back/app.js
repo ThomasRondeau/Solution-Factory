@@ -1,6 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-const mysql = require('mysql');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -13,6 +13,9 @@ const routes = require('./router.js')
 app.use(cookieParser());  // pour les sessions
 app.use(bodyParser.urlencoded({ extended: false })); // pour récupérer les body sous la bonne forme dans les formulaires
 app.use('/', routes)                    // servir le router
+app.use(express.static(path.join(__dirname, '../front/css')));
+app.use(express.static(path.join(__dirname, '../front/js')));
+app.use(express.static(path.join(__dirname, '../front/images')));
 app.use(session({
     secret: 'hsfqifnqlifnvvnazpnea',
     resave: false,

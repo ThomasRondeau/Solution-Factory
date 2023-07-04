@@ -29,6 +29,9 @@ router.get('/', (req, res) => {
 router.get('/accueil', (req, res) => {
     res.sendFile('index.html', { root : htmlPath})
 })
+router.get('/a_propos', (req, res) => {
+    res.sendFile('a_propos.html', { root : htmlPath})
+})
 router.get('/consulter_demande', (req, res) => {
     res.sendFile('consulter_demande.html', { root : htmlPath})
 })
