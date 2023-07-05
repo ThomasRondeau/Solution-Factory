@@ -1,13 +1,4 @@
-const mysql = require('mysql');
-
-// Configuration de la connexion à MySQL
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'courtier'
-});
-
+const connection = require('./db_connexion.js')
 
 class Bank{
     static loginBank(id, password){
