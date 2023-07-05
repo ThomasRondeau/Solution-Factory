@@ -13,33 +13,46 @@ class User {
   }
 
   // Méthode pour créer un utilisateur
-  createUser() {
+  createUser(callback) {
     const query = `INSERT INTO client (nom, prenom, email, birthdate, password, ville) VALUES (?, ?, ?, ?, ?, ?)`;
-    connection.query(query, [this.nom, this.prenom, this.email, this.birthdate, this.password, this.city], function(err, results){
-      if(err) throw err;
-    })
-  }
-
-  // Méthode pour obtenir un utilisateur par son identifiant
-  static getUser(userId) {
-    const query = `SELECT * FROM client WHERE id = ?`;
-    connection.query(query, [userId], function(err, results){
-      if(err) throw new Error("L'id n'a pas été trouvé");
-      return results;
-    })
-  }
-
-  static loginUser(email, password){
-    const query = `SELECT id_client, password FROM client WHERE email = ?`;
-    connection.query(query, [email], function(err, results){
-      if(err) throw err;
-      if (results.length > 0 && password == results[0].password) {
-        return results[0].id_client
+    connection.query(query, [this.nom, this.prenom, this.email, this.birthdate, this.password, this.city], function(err, results) {
+      if (err) {
+        console.error('Erreur lors de l\'exécution de la requête d\'insertion :', err);
+        callback(err);
       } else {
-        throw new Error("L'id ou le mot de passe ne sont pas bons");
+        console.log('L\'utilisateur a été créé avec succès');
+        callback(null);
       }
+    });
+  }
+
+  static loginUser(email, password, callback){
+    const query = `SELECT id_client, password FROM client WHERE email = ?`;
+    var boolean = false;
+    connection.query(query, [email], function(err, results){
+      if (err) {
+        console.error('Erreur lors de l\'exécution de la requête :', err);
+      } else {
+        if (results.length > 0 && password == results[0].password) {
+          var result = results[0].id_client
+          boolean = true
+          console.log('L\'utilisateur est connecté');
+        }else{
+          var error = new Error("L'id ou le mot de passe ne sont pas bons")
+        }
+      }
+      callback(error, boolean, result)
     })
   }
+
+    // Méthode pour obtenir un utilisateur par son identifiant
+    static getUser(userId, callback) {
+      const query = `SELECT * FROM client WHERE id = ?`;
+      connection.query(query, [userId], function(err, results){
+        callback(err, results);
+      })
+    }
 }
+
 
 module.exports = User;

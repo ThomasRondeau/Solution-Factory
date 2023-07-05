@@ -14,6 +14,7 @@ CREATE TABLE client(
 
 CREATE TABLE banque(
    id_banque INT,
+   nom_banque VARCHAR(100),
    password VARCHAR(100),
    PRIMARY KEY(id_banque)
 );
@@ -28,9 +29,11 @@ CREATE TABLE contrat(
 );
 
 CREATE TABLE relation_banque_client(
+   id_client INT,
    id_contrat INT,
    id_banque INT,
    taux INT,
+   FOREIGN KEY(id_client) REFERENCES client(id_client),
    FOREIGN KEY(id_contrat) REFERENCES contrat(id_contrat),
    FOREIGN KEY(id_banque) REFERENCES banque(id_banque),
    PRIMARY KEY(id_banque, id_contrat)

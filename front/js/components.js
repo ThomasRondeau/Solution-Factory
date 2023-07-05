@@ -3,8 +3,8 @@
 const template1 = document.createElement("template");
 template1.innerHTML += `
 <link rel="stylesheet" href="output.css">
-<div class="bandeau">
-            <div id="bandeau" class="flex items-center" >
+<div class="bg-white">
+        <div id="bandeau" class="flex items-center" >
 
                 <div>
                     <img class="ml-10" src="logo.png" alt="logo">
@@ -16,8 +16,10 @@ template1.innerHTML += `
                     <a href="/register" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">S'inscrire</a>
                     <a href="/login" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Se connecter</a>
                     <a href="/create_credit" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Demande de credit</a>
+                    <a href="/consulter_demande" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Consulter votre demande</a>
                 </div>
         </div>
+</div>
 `;
 
 class NavBar extends HTMLElement {

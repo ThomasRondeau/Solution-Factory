@@ -17,6 +17,9 @@ const  {
 
 const {loginBank} = require('./controllers/bankController.js')
 
+const authClientMiddleware = require('./controllers/authClientController.js');
+
+// definition du path
 const htmlPath = path.join(__dirname, '../front/html');
 
 //redirect
@@ -35,8 +38,17 @@ router.get('/a_propos', (req, res) => {
 router.get('/consulter_demande', (req, res) => {
     res.sendFile('consulter_demande.html', { root : htmlPath})
 })
-router.get('/create_credit', (req, res) => {
+router.get('/create_credit', authClientMiddleware, (req, res) => {
     res.sendFile('create_credit.html', { root : htmlPath})
+})
+router.get('/consulter_demande', authClientMiddleware, (req, res) => {
+    res.sendFile('consulter_demande.html', { root : htmlPath})
+})
+router.get('/credit_success', (req, res) => {
+    res.sendFile('credit_success.html', { root : htmlPath})
+})
+router.get('/login_banque', (req, res) => {
+    res.sendFile('login_banque.html', { root : htmlPath})
 })
 router.get('/login', (req, res) => {
     res.sendFile('login.html', { root : htmlPath})
