@@ -44,8 +44,10 @@ function getAnswers(req, res){
 
 function answerCredit(req, res){
     const id_contrat = req.body.id_contrat
-    const id_banque = req.body.id_banque
-    Transaction.answerCredit(id_contrat, id_banque, (err) =>{
+    const id_client = req.body.id_client
+    const taux = req.body.taux
+    const bankId = req.session.userId
+    Transaction.answerCredit(id_client, id_contrat, bankId, taux, (err) =>{
       console.log(err);
     })
 }

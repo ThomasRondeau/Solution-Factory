@@ -36,9 +36,9 @@ class Transaction {
         
     }
 
-    static answerCredit(id_contrat, id_banque, taux, callback){
-        const query = "INSERT INTO relation_banque_client(id_contrat, id_banque) VALUES(?, ?, ?)"
-        connection.query(query, [id_contrat, id_banque, taux], function(err){
+    static answerCredit(id_client, id_contrat, id_banque, taux, callback){
+        const query = "INSERT INTO relation_banque_client(id_client, id_contrat, id_banque, taux) VALUES(?, ?, ?, ?)"
+        connection.query(query, [id_client, id_contrat, id_banque, taux], function(err){
             callback(err)
         })
     }

@@ -8,43 +8,50 @@ fetch('/get_alltrans', {
   .then(response => response.json())
   .then(result => {
     result.forEach(item => {
-        /*
-        var bloc = document.createElement('answer-offre');
 
-        const contenu1 = document.createElement('p');
-        contenu1.setAttribute('slot', 'id-contrat');
-        contenu1.textContent = item.id_contrat;
-        bloc.appendChild(contenu1);
+      var form = document.createElement("form");
+      form.setAttribute("id", "form");
+      form.setAttribute("method", "POST");
+      form.setAttribute("action", "/answer_credit");
 
-        const contenu2 = document.createElement('p');
-        contenu2.setAttribute('slot', 'montant-offre');
-        contenu2.textContent = item.montant;
-        bloc.appendChild(contenu2);
+      var idclientInput = document.createElement("input");
+      idclientInput.setAttribute("type", "hidden");
+      idclientInput.setAttribute("name", "id_client");
+      idclientInput.setAttribute('value', item.id_client);
+      form.appendChild(idclientInput);
 
-        const contenu3 = document.createElement('p');
-        contenu3.setAttribute('slot', 'nombre-annees');
-        contenu3.textContent = item.duree;
-        bloc.appendChild(contenu3);
+      var idcontratInput = document.createElement("input");
+      idcontratInput.setAttribute("type", "hidden");
+      idcontratInput.setAttribute("name", "id_contrat");
+      idcontratInput.setAttribute('value', item.id_contrat);
+      form.appendChild(idcontratInput);
 
+      var tauxInput = document.createElement("input");
+      tauxInput.setAttribute("type", "number");
+      tauxInput.setAttribute("name", "taux");
+      tauxInput.setAttribute("placeholder", "Entrez le taux");
+      form.appendChild(tauxInput);
 
-        var bloc_insertion = document.getElementById("insertion");
-        bloc_insertion.appendChild(bloc);
-        */
+      var submit = document.createElement("input");
+      submit.setAttribute("type", "submit");
+      submit.setAttribute("name", "taux");
+      submit.setAttribute("placeholder", "Accepter le contrat");
+      form.appendChild(submit);
 
-
-        var bloc = document.createElement('div')
-        bloc.setAttribute('class', 'bg-slate-300 rounded-lg shadow-lg p-4')
-        var titre2 = document.createElement('h2');
-        titre2.textContent = 'Contrat ' + item.id_contrat;
-        var montant = document.createElement("p");
-        montant.textContent = 'montant à emprunter : ' + item.montant;
-        var duree = document.createElement("p");
-        duree.textContent = 'Nombre d\'années : ' + item.duree;
-        var bloc_insertion = document.getElementById("insertion");
-        bloc.appendChild(titre2);
-        bloc.appendChild(montant);
-        bloc.appendChild(duree);
-        bloc_insertion.appendChild(bloc);
+      var bloc = document.createElement('div')
+      bloc.setAttribute('class', 'bg-slate-300 rounded-lg shadow-lg p-4 mb-6')
+      var titre2 = document.createElement('h2');
+      titre2.textContent = 'Contrat ' + item.id_contrat;
+      var montant = document.createElement("p");
+      montant.textContent = 'montant à emprunter : ' + item.montant;
+      var duree = document.createElement("p");
+      duree.textContent = 'Nombre d\'années : ' + item.duree;
+      var bloc_insertion = document.getElementById("insertion");
+      bloc.appendChild(titre2);
+      bloc.appendChild(montant);
+      bloc.appendChild(duree);
+      bloc.appendChild(form);
+      bloc_insertion.appendChild(bloc);
         
       });
   })

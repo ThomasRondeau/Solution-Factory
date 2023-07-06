@@ -9,27 +9,30 @@
         <title>Demande de crédit</title>
     </head>
 
-    <div class="h-screen bg-slate-400" >
 
-        <nav-bar></nav-bar>
+    <div class="h-screen bg-slate-400 flex flex-col">
 
-        <!--Body-->
-        <div class="flex flex-row">
-
-            <!--image-->
-            <div class="w-1/5 ">
-                <img class="rounded-lg w-full h-full ml-20 mt-20" src="imag-credit.jpg">
+    
+        <!-- Body -->
+        <div class="flex flex-row flex-grow">
+    
+            <!-- Image -->
+            <div class="w-1/5">
+                <img class="rounded-lg w-full h-5/6 object-cover ml-10 mt-20" src="imag-credit.jpg">
             </div>
-            <h1>Bravo, votre demande de crédit a bien été enregistré</h1>
-            <button onclick="window.location.href = '/accueil'">Revenir à l'accueil</button>
-
-            <!--image-->
-            <div class="w-1/5 mr-20">
-                <img class="rounded-lg w-full h-full mt-20" src="imag-credit.jpg">
+    
+            <!-- Content -->
+            <div class="flex flex-col justify-center items-center flex-grow">
+                <h1 class="text-3xl font-bold mt-10">Bravo, votre demande de crédit a bien été enregistrée</h1>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" onclick="window.location.href = '/accueil'">Revenir à l'accueil</button>
             </div>
-
+    
+            <!-- Image -->
+            <div class="w-1/5">
+                <img class="rounded-lg w-full h-5/6 object-cover mt-20 mr-20" src="imag-credit.jpg">
+            </div>
+    
         </div>
-
-
+    
     </div>
 </html>
