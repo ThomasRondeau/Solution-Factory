@@ -14,7 +14,17 @@ function createTransaction(req, res){
 }
 
 function getTransaction(req, res){
-  Transaction.getTransaction()
+  Transaction.getTransaction(req.session.userId, (err, result) => {
+    console.log(err);
+    return result;
+  })
+}
+
+function getAnswers(req, res){
+  Transaction.getAnswers(req.session.userId, (err, result) => {
+    console.log(err);
+    return result;
+  })
 }
 
 function answerCredit(req, res){
@@ -27,6 +37,8 @@ function answerCredit(req, res){
 }
 
 module.exports = {
+  getTransaction,
+  getAnswers,
   createTransaction,
   answerCredit
 };

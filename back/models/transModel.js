@@ -14,7 +14,7 @@ class Transaction {
         });
     }
 
-    getAllTransaction(){
+    static getAllTransaction(){
         const query = "SELECT * FROM contrat";
         connection.query(query, function (err, result) {
             if (err) throw err;
