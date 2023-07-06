@@ -43,10 +43,9 @@ const template2 = document.createElement("template");
 template2.innerHTML += `
 <link rel="stylesheet" href="output.css">
 <div>
-    <h2>Offre de rachat</h2>
-    <p>Montant de l'offre : <slot name="montant-offre">Non renseigné</slot></p>
-    <p>Banque proposant l'offre : <slot name="nom-banque">Non renseigné</slot></p>
-    <p>Taux du crédit : <slot name="taux-credit">Non renseigné</slot></p>
+    <h2>Contrat <slot name="id-contrat" class = "inline">Non renseigné</slot></h2>
+    <p>Montant à emprunter : <slot name="montant-offre" class = "inline">Non renseigné</slot></p>
+    <p>Nombre d'années :  <slot name="nombre-annees" style = "display: inline">Non renseigné</slot></p>
 </div>
 `;
 
