@@ -2,39 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/output.css">
+        <link rel="stylesheet" href="output.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
-        <script src="../js/components.js"></script>
+        <script type="module" src="components.js"></script>
         <title>Création de compte</title>
     </head>
 
     <!--Register Page-->
     <div>
 
-        <!-- Menu Bar -->
-        <div class="bandeau">
-            <div id="bandeau" class="flex flex-row items-center sticky top-0 drop-shadow-md bg-white" >
-
-                <div>
-                    <img class="ml-10" src="../../images/logo.png" alt="logo">
-                </div>
-                
-                <div class="flex-1 text-end mr-4">
-                    <a href="index.html" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Accueil</a>
-                    <a href="a_propos.html" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">A propos</a>
-                    <a href="register.html" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">S'inscrire</a>
-                    <a href="login.html" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Se connecter</a>
-                    <a href="create_credit.html" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Demande de credit</a>
-                </div>
-        </div>
+        <nav-bar></nav-bar>
 
         <!--Body-->
         <div class="flex flex-row justify-between w-full">
 
             <!--form-->
             <div class="w-1/2">
-                <h2 class="font-serif font-bold text-2xl text-center mt-20">Crées ton compte</h2>
+                <h2 class="font-serif font-bold text-2xl text-center mt-16">Créé ton compte</h2>
                 <form action="/register" method="post">
                     
                     <br>
@@ -66,7 +51,7 @@
 
             <!--image-->
             <div class="w-2/3 h-screen flex flex-col items-center justify-between">
-                <img class="w-11/12 h-5/6 mt-7 rounded-lg" src="../../images/background.JPG" alt="image">
+                <img class="w-11/12 h-5/6 rounded-lg" src="background.JPG" alt="image">
             </div>
         </div>
 

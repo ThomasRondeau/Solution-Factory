@@ -2,39 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/output.css">
+        <link rel="stylesheet" href="output.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
-        <script src="../js/components.js"></script>
-        <title>Document</title>
+        <script type="module" src="components.js"></script>
+        <title>Demande de crédit</title>
     </head>
 
     <!-- Create Credit Page-->
-    <div class="bg-black h-screen" >
+    <div class="h-screen bg-slate-400" >
 
-         <!-- Menu Bar -->
-        <div class="bandeau">
-            <div id="bandeau" class="flex items-center" >
-
-                <div>
-                    <img class="ml-10" src="../../images/logo.png" alt="logo">
-                </div>
-                
-                <div id="redirection" class="flex-1 text-end mr-4">
-                    <a href="index.html" class="text-white px-5 hover:bg-slate-700 ">Accueil</a>
-                    <a href="a_propos.html" class="text-white px-5 hover:bg-slate-700 ">A propos</a>
-                    <a href="register.html" class="text-white px-5 hover:bg-slate-700 ">S'inscrire</a>
-                    <a href="login.html" class="text-white px-5 hover:bg-slate-700 ">Se connecter</a>
-                    <a href="create_credit.html" class="text-white px-5 hover:bg-slate-700 ">Demande de credit</a>
-                </div>
-        </div>
+        <nav-bar></nav-bar>
 
         <!--Body-->
         <div class="flex flex-row">
 
             <!--image-->
             <div class="w-1/5 ">
-                <img class="rounded-lg w-full h-full ml-20 mt-20" src="../../images/imag-credit.jpg">
+                <img class="rounded-lg w-full h-full ml-20 mt-20" src="imag-credit.jpg">
             </div>
 
             <!--form-->
@@ -43,13 +28,10 @@
                 <form class="mt-14" action="/credit" method="post">
 
                     <label class="font-serif text-base ml-24 py-6 text-white" for="montant">Montant de la demande :</label>
-                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="text" id="montant" name="montant" required><br>
+                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="number" id="montant" name="montant" required><br>
 
-                    <label class="font-serif text-base ml-24 py-6 text-white" for="nom_d">Nom du demandeur :</label>
-                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="text" id="nom_d" name="nom_d" required><br>
-
-                    <label class="font-serif text-base ml-24 py-6 text-white" for="email_d">Email du demandeur:</label>
-                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" type="email" id="email_d" name="email_d" required><br>
+                    <label class="font-serif text-base ml-24 py-6 text-white" for="justificatif de domicile">Durée souhaitée : </label>
+                    <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" name="duree" type="number">
 
                     <label class="font-serif text-base ml-24 py-6 text-white" for="justificatif de domicile">Vous devez fournir un justificatif de domicile :</label>
                     <input class="mt-2 ml-24 border bg-black border-gray-600 text-gray-600 text-sm rounded-full block w-3/5 p-2.5" name="file1" type="file" accept="application/pdf">
@@ -60,7 +42,7 @@
 
             <!--image-->
             <div class="w-1/5 mr-20">
-                <img class="rounded-lg w-full h-full mt-20" src="../../images/imag-credit.jpg">
+                <img class="rounded-lg w-full h-full mt-20" src="imag-credit.jpg">
             </div>
 
         </div>

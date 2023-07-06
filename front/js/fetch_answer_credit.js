@@ -1,3 +1,3 @@
-fetch("localhost:3000/").then(function(response){
+fetch("localhost:3000/answer_credit").then(function(response){
     
 })

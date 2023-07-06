@@ -11,12 +11,17 @@ const  {
 } = require('./controllers/userController.js')
 
 const  { 
+    getTransaction,
+    getAnswers,
     createTransaction,
     answerCredit
 } = require('./controllers/transController.js')
 
-const loginBank = require('./controllers/bankController.js')
+const {loginBank} = require('./controllers/bankController.js')
 
+const authClientMiddleware = require('./controllers/authClientController.js');
+
+// definition du path
 const htmlPath = path.join(__dirname, '../front/html');
 
 //redirect
@@ -24,23 +29,28 @@ router.get('/', (req, res) => {
     res.redirect('/accueil');
 });
 
-/*
-// servir vue js
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-*/
-
 
 // tous les gets
 router.get('/accueil', (req, res) => {
     res.sendFile('index.html', { root : htmlPath})
 })
+router.get('/a_propos', (req, res) => {
+    res.sendFile('a_propos.html', { root : htmlPath})
+})
 router.get('/consulter_demande', (req, res) => {
     res.sendFile('consulter_demande.html', { root : htmlPath})
 })
-router.get('/create_credit', (req, res) => {
+router.get('/create_credit', authClientMiddleware, (req, res) => {
     res.sendFile('create_credit.html', { root : htmlPath})
+})
+router.get('/consulter_demande', authClientMiddleware, (req, res) => {
+    res.sendFile('consulter_demande.html', { root : htmlPath})
+})
+router.get('/credit_success', (req, res) => {
+    res.sendFile('credit_success.html', { root : htmlPath})
+})
+router.get('/login_banque', (req, res) => {
+    res.sendFile('login_banque.html', { root : htmlPath})
 })
 router.get('/login', (req, res) => {
     res.sendFile('login.html', { root : htmlPath})
@@ -60,10 +70,12 @@ router.post('/logout', logoutUser)
 router.post('/getprofile', getUser) // à implémenter pour faire une page profil
 
 // pour le bankController
-//router.post('/login_banque', loginBank)
+router.post('/login_banque', loginBank)
 
 // pour le transController
 router.post('/credit', createTransaction)
+router.post('/get_transaction', getTransaction)
+router.post('/get_answers', getAnswers)
 router.post('/answer_credit', answerCredit)
 
 module.exports = router
