@@ -14,10 +14,10 @@ class Transaction {
         });
     }
 
-    static getAllTransaction(){
+    static getAllTransaction(callback){
         const query = "SELECT * FROM contrat";
         connection.query(query, function (err, result) {
-            if (err) throw err;
+            callback(err, result)
         });
     }
 

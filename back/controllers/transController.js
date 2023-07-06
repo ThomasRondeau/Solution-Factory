@@ -13,17 +13,32 @@ function createTransaction(req, res){
     });
 }
 
-function getTransaction(req, res){
+function getTransaction(req, res) {
   Transaction.getTransaction(req.session.userId, (err, result) => {
-    console.log(err);
-    return result;
-  })
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération des transactions.' });
+    } else {
+      res.json(result);
+    }
+  });
+}
+
+function getAllTrans(req, res){
+  Transaction.getAllTransaction((err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération des transactions.' });
+    } else {
+      res.json(result);
+    }
+  });
 }
 
 function getAnswers(req, res){
   Transaction.getAnswers(req.session.userId, (err, result) => {
     console.log(err);
-    return result;
+    res.json(result);
   })
 }
 
@@ -33,10 +48,11 @@ function answerCredit(req, res){
     Transaction.answerCredit(id_contrat, id_banque, (err) =>{
       console.log(err);
     })
-
 }
 
+
 module.exports = {
+  getAllTrans,
   getTransaction,
   getAnswers,
   createTransaction,

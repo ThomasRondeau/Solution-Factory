@@ -11,6 +11,7 @@ const  {
 } = require('./controllers/userController.js')
 
 const  { 
+    getAllTrans,
     getTransaction,
     getAnswers,
     createTransaction,
@@ -74,6 +75,7 @@ router.post('/login_banque', loginBank)
 
 // pour le transController
 router.post('/credit', createTransaction)
+router.post('/get_alltrans', getAllTrans)
 router.post('/get_transaction', getTransaction)
 router.post('/get_answers', getAnswers)
 router.post('/answer_credit', answerCredit)
