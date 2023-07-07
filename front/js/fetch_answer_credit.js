@@ -34,7 +34,7 @@ fetch('/get_alltrans', {
 
       var submit = document.createElement("input");
       submit.setAttribute("type", "submit");
-      submit.setAttribute("name", "taux");
+      submit.setAttribute("name", "submit");
       submit.setAttribute("placeholder", "Accepter le contrat");
       form.appendChild(submit);
 

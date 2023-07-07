@@ -16,7 +16,7 @@ template1.innerHTML += `
                     <a href="/register" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">S'inscrire</a>
                     <a href="/login" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Se connecter</a>
                     <a href="/create_credit" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Demande de credit</a>
-                    <a href="/consulter_demande" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Consulter votre demande</a>
+                    <a href="/consulter_demande" class="text-blue-950 px-5 hover:bg-slate-700 hover:text-white">Consulter vos demandes</a>
                 </div>
         </div>
 </div>
